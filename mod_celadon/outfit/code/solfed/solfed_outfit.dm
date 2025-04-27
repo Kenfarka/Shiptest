@@ -331,7 +331,9 @@
 	satchel = /obj/item/storage/backpack/satchel/solfed
 	duffelbag = /obj/item/storage/backpack/duffelbag/solfed
 	courierbag = /obj/item/storage/backpack/messenger/com
-
+/datum/outfit/job/solfed/quartermaster/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	get_solfed_head_access(H)
 
 
 //							///
