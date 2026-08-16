@@ -82,6 +82,7 @@
 
 //Security
 
+// [CELADON-EDIT] - CELADON_BALANCE - броня хосовских шапок переопределена в mod_celadon\balance\code\items.dm
 /obj/item/clothing/head/HoS
 	name = "head of security cap"
 	desc = "The robust standard-issue cap of the Head of Security. For showing the officers who's in charge."
@@ -94,6 +95,7 @@
 
 	dog_fashion = /datum/dog_fashion/head/cowboy
 
+// [CELADON-EDIT] - CELADON_BALANCE - броня /obj/item/clothing/head/cowboy/sec переопределена в mod_celadon\balance\code\items.dm
 /obj/item/clothing/head/cowboy/sec
 	name = "deputy hat"
 	desc = "A robust stetson adorned with a deputy's badge. Its imitation leather is thick and worn."
@@ -103,18 +105,13 @@
 	name = "syndicate cap"
 	desc = "A black cap fit for a high ranking syndicate officer."
 
-/obj/item/clothing/head/HoS/cybersun
-	name = "cybersun hat"
-	desc = "A crimson-red hat fit for a high ranking cybersun officer."
-	icon_state = "cybersunhat"
-	item_state = "cybersunhat"
-
 /obj/item/clothing/head/HoS/beret/syndicate
 	name = "syndicate beret"
 	desc = "A nondescript black beret. Stylish and robust."
 	icon_state = "beret_officer"
 	item_state = "beret_officer"
 
+// [CELADON-EDIT] - CELADON_BALANCE - броня /obj/item/clothing/head/warden переопределена в mod_celadon\balance\code\items.dm
 /obj/item/clothing/head/warden
 	name = "warden's police hat"
 	desc = "It's a special hat issued to the Warden of a security force. A classic symbol of middling authority."

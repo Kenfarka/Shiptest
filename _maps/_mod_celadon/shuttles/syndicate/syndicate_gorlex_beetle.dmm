@@ -2170,7 +2170,7 @@
 /obj/item/clothing/suit/space/hardsuit/syndi/cybersun/paramed,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/vending/wallmed{
+/obj/machinery/vending/wallmed/ship{
 	pixel_y = 28
 	},
 /obj/machinery/airalarm/directional/west,
@@ -3066,10 +3066,10 @@
 	name = "\improper Gorlex fatigues"
 	},
 /obj/item/clothing/gloves/color/latex/nitrile/evil,
-/obj/item/clothing/head/helmet/medical{
+/obj/item/clothing/head/helmet/m10/cybersun/trauma{
 	name = "improper trauma team helmet"
 	},
-/obj/item/clothing/suit/armor/vest/trauma{
+/obj/item/clothing/suit/armor/vest/cybersun/trauma{
 	name = "Gorlex trauma team armor vest"
 	},
 /obj/item/storage/belt/medical/webbing/paramedic,

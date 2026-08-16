@@ -55,6 +55,7 @@
 		return BULLET_ACT_FORCE_PIERCE
 	var/armor = run_armor_check(def_zone, P.flag, P.armour_penetration, silent = TRUE)
 	var/on_hit_state = P.on_hit(src, armor, piercing_hit)
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, P, def_zone) // [CELADON-ADD] - CELADON-MODSUITS
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK && !QDELETED(src)) //QDELETED literally just for the instagib rifle. Yeah.
 		var/attack_direction = get_dir(P.starting, src)
 		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
@@ -234,7 +235,7 @@
 				to_chat(user, span_danger("You're strangling [src]!"))
 				if(!buckled && !density)
 					Move(user.loc)
-		user.set_pull_offsets(src, grab_state)
+		user.set_pull_offsets(src, user.grab_state)
 		return 1
 
 
@@ -429,14 +430,23 @@
 	return 20
 
 //called when the mob receives a bright flash
-/mob/living/proc/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash)
+/mob/living/proc/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(HAS_TRAIT(src, TRAIT_NOFLASH))
 		return FALSE
-	if(get_eye_protection() < intensity && (override_blindness_check || !is_blind()))
-		overlay_fullscreen("flash", type)
-		addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), "flash", 25), 25)
-		return TRUE
-	return FALSE
+	if(get_eye_protection() >= intensity)
+		return FALSE
+	if(is_blind() && !(override_blindness_check || affect_silicon))
+		return FALSE
+
+	// this forces any kind of flash (namely normal and static) to use a black screen for photosensitive players
+	// it absolutely isn't an ideal solution since sudden flashes to black can apparently still trigger epilepsy, but byond apparently doesn't let you freeze screens
+	// and this is apparently at least less likely to trigger issues than a full white/static flash
+	if(client?.prefs?.darkened_flash)
+		type = /atom/movable/screen/fullscreen/flash/black
+
+	overlay_fullscreen("flash", type)
+	addtimer(CALLBACK(src, .proc/clear_fullscreen, "flash", length), length)
+	return TRUE
 
 //called when the mob receives a loud bang
 /mob/living/proc/soundbang_act()

@@ -433,7 +433,7 @@
 	desc = "A classic metal helmet."
 	icon_state = "knight_green"
 	item_state = "knight_green"
-	armor = list("melee" = 50, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	armor = list("melee" = 50, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80, "wound" = 20)  // [CELADON-EDIT] - CELADON_BALANCE
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	strip_delay = 80
@@ -503,14 +503,6 @@
 	item_state = "operator"
 	content_overlays = TRUE
 	can_flashlight = TRUE
-
-/obj/item/clothing/head/helmet/medical
-	name = "\improper trauma team helmet"
-	desc = "A robust combat helmet commonly employed by cybersun medical trauma teams, with its distinctive turquoise."
-	icon_state = "traumahelm"
-	item_state = "traumahelm"
-	can_flashlight = TRUE
-	supports_variations = VOX_VARIATION
 
 /obj/item/clothing/head/helmet/m10
 	name = "\improper M-10 pattern Helmet"

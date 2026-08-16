@@ -270,6 +270,29 @@
 	full_retraction = TRUE
 	supports_variations = VOX_VARIATION | KEPORI_VARIATION
 
+/obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/inteq
+	name = "elite rampart hardsuit helmet"
+	desc = "A unique edition of the infamous Gorlex elite hardsuit, customized from seized ICW-era caches. It is in EVA mode. Property of the IRMG."
+	alt_desc = "A unique edition of the infamous Gorlex elite hardsuit, customized from seized ICW-era caches. It is in combat mode. Property of the IRMG."
+	icon_state = "hardsuit0-rampart"
+	hardsuit_type = "rampart"
+	icon = 'icons/obj/clothing/faction/inteq/hats.dmi'
+	mob_overlay_icon = 'icons/mob/clothing/faction/inteq/hats.dmi'
+
+/obj/item/clothing/suit/space/hardsuit/syndi/elite/inteq
+	name = "elite rampart hardsuit"
+	desc = "A unique edition of the infamous Gorlex elite hardsuit, customized from seized ICW-era caches. It is in travel mode."
+	alt_desc = "A unique edition of the infamous Gorlex elite hardsuit, customized from seized ICW-era caches. It is in combat mode."
+	icon_state = "hardsuit0-rampart"
+	item_state = "hardsuit0-rampart"
+	hardsuit_type = "rampart"
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/inteq
+	icon = 'icons/obj/clothing/faction/inteq/suits.dmi'
+	mob_overlay_icon = 'icons/mob/clothing/faction/inteq/suits.dmi'
+	jetpack = null
+	supports_variations = DIGITIGRADE_VARIATION
+
+
 // pilot softsuit
 /obj/item/clothing/suit/space/inteq/pilot
 	name = "inteq pilot space suit"
@@ -464,6 +487,14 @@
 	supports_variations = KEPORI_VARIATION | VOX_VARIATION
 	vox_override_icon = 'icons/mob/clothing/faction/inteq/vox.dmi'
 	kepori_override_icon = 'icons/mob/clothing/faction/inteq/kepori.dmi'
+// [CELADON-ADD] - SFX-Die
+	unique_death = list(
+		'mod_celadon/_storage_sounds/sound/items/gasmask/die1.ogg',
+		'mod_celadon/_storage_sounds/sound/items/gasmask/die2.ogg',
+		'mod_celadon/_storage_sounds/sound/items/gasmask/die3.ogg',
+		'mod_celadon/_storage_sounds/sound/items/gasmask/die4.ogg',
+		)
+// [/CELADON-ADD]
 
 /obj/item/clothing/mask/balaclava/inteq
 	name = "Inteq combat balaclava"

@@ -31,6 +31,7 @@
 		/obj/item/stock_parts/cell/gun/empty,
 		/obj/item/stock_parts/cell/gun/upgraded/empty,
 	)
+	var/ammotype_string = "fallback_laser_fallback"
 
 	tac_reloads = FALSE
 	tactical_reload_delay = 1.2 SECONDS
@@ -41,6 +42,7 @@
 		/obj/item/attachment/laser_sight,
 		/obj/item/attachment/rail_light,
 		/obj/item/attachment/bayonet,
+		/obj/item/attachment/gun
 	)
 	slot_available = list(
 		ATTACHMENT_SLOT_RAIL = 1,
@@ -131,15 +133,23 @@
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/gun/energy/attack_hand(mob/user)
-	if(!internal_magazine && loc == user && user.is_holding(src) && cell && tac_reloads && !(gun_firemodes[firemode_index] == FIREMODE_UNDERBARREL))
+	if(!internal_magazine && !internal_cell && loc == user && user.is_holding(src) && cell && tac_reloads && !(gun_firemodes[firemode_index] == FIREMODE_UNDERBARREL))	// [CELADON-ADD]
 		eject_cell(user)
 		return
 	return ..()
 
+// [CELADON-ADD] - HOTKEY-RELOAD - Возвращает переключение режимов стрельбы на кнопку перезарядки
+/obj/item/gun/energy/unique_action(mob/living/user)
+	if(ammo_type.len > 1)
+		select_fire(user)
+		update_appearance()
+// [/CELADON-ADD]
+
 /obj/item/gun/energy/attackby(obj/item/A, mob/user, params)
 	if(..())
 		return FALSE
-
+	if(internal_cell)	// [CELADON-ADD]
+		return			// [/CELADON-ADD]
 	if (!internal_magazine && (A.type in (allowed_ammo_types - blacklisted_ammo_types)))
 		var/obj/item/stock_parts/cell/gun/C = A
 		if (!cell)
@@ -210,11 +220,29 @@
 //special is_type_in_list method to counteract problem with current method
 
 // [CELADON-REMOVE] - CELADON BALANCE - часть новой бесполезной системы люков от оффов
-// /obj/item/gun/energy/proc/is_attachment_in_contents_list()
-// 	for(var/content_item in contents)
-// 		if(istype(content_item, /obj/item/attachment/))
-// 			return TRUE
-// 	return FALSE
+///obj/item/gun/energy/unique_action(mob/living/user)
+//	if(..())
+//		return
+//
+//	if(!internal_magazine && latch_closed)
+//		to_chat(user, span_notice("You start to unlatch the [src]'s power cell retainment clip..."))
+//		if(do_after(user, latch_toggle_delay, src, IGNORE_USER_LOC_CHANGE))
+//			to_chat(user, span_notice("You unlatch the [src]'s power cell retainment clip " + span_red("OPEN") + "."))
+//			playsound(src, 'sound/items/taperecorder/taperecorder_play.ogg', 50, FALSE)
+//			tac_reloads = TRUE
+//			latch_closed = FALSE
+//			update_appearance()
+//
+//	else if(!internal_magazine && !latch_closed)
+//		to_chat(user, span_warning("You start to latch the [src]'s power cell retainment clip..."))
+//
+//		if (do_after(user, latch_toggle_delay, src, IGNORE_USER_LOC_CHANGE))
+//			to_chat(user, span_notice("You latch the [src]'s power cell retainment clip " + span_green("CLOSED") + "."))
+//			playsound(src, 'sound/items/taperecorder/taperecorder_close.ogg', 50, FALSE)
+//			tac_reloads = FALSE
+//			latch_closed = TRUE
+//			update_appearance()
+//	return
 
 // /obj/item/gun/energy/unique_action(mob/living/user)
 // 	if(..())
@@ -438,8 +466,12 @@
 				overlay_icon_state += "_[shot.select_name]"
 			var/mutable_appearance/charge_overlay = mutable_appearance(icon, overlay_icon_state)
 			for(var/i = ratio, i >= 1, i--)
-				charge_overlay.pixel_x = ammo_x_offset * (i - 1)
-				charge_overlay.pixel_y = ammo_y_offset * (i - 1)
+				// [CELADON-EDIT]
+				charge_overlay.transform = matrix(transform).Translate(
+					ammo_x_offset * (i - 1),
+					ammo_y_offset * (i - 1)
+				)
+				// [/CELADON-EDIT]
 				. += new /mutable_appearance(charge_overlay)
 		else
 			if(modifystate)

@@ -15,6 +15,7 @@
 #include "access/_access.dme"
 #include "achievements/_achievements.dme"
 #include "areas/_areas.dme"
+#include "hud/_hud.dme"
 #include "faction/_faction.dme"
 #include "ghost_roles/_ghost_roles.dme"
 #include "ipc_chassis/_ipc_chassis.dme"
@@ -29,6 +30,7 @@
 #include "clumsy_table/_clumsy_table.dme"
 #include "quirks/_quirks.dme"
 #include "wallets/_wallets.dme"
+#include "discord/_discord.dme"
 
 // --- SECRET --- //
 
@@ -39,7 +41,6 @@
 #endif
 
 // --- ICONS --- //
-#include "parallax/_parallax.dme"
 #include "resprite/_resprite.dme"
 #include "species_changes/_species_changes.dme"
 
@@ -50,7 +51,6 @@
 #include "barsigns/_barsigns.dme"
 #include "boarding/_boarding.dme"
 #include "bongs/_bongs.dme"
-#include "celadon_old_syndicate_rigs/_celadon_old_syndicate_rigs.dme"
 #include "celadon_modsuits/celadon_modsuits.dme"
 #include "effects/_effects.dme"
 #include "elysiumpod/_elysiumpod.dme"
@@ -94,12 +94,12 @@
 // --- MISC --- //
 #include "ai_laws/_ai_laws.dme"
 #include "balance/_balance.dme"
+#include "commie_rev/_commie_rev.dme"
 #include "ethereal_fix/_ethereal_fix.dme"
 #include "fixes/_fixes.dme"
 #include "ipc_surgery/_ipc_surgery.dme"
 #include "lifeline_minus/_lifeline_minus.dme"
 #include "robotic_honk/_robotic_honk.dme"
-#include "wideband/_wideband.dme"
 #include "crafting_recipe/_crafting_recipe.dme"
 // #include "fix_tail/_fix_tail.dme"	-	Отключен по приказу хэда шиптеста
 #include "underwear/_underwear.dme"
@@ -125,9 +125,6 @@
 
 // --- OUTFIT --- //
 #include "outfit/_outfit.dme"
-
-// --- MEDICAL SYSTEMS --- //
-#include "diabetes/_diabetes.dme"
 
 // --- ПОСЛЕДНЯЯ ИНСТАНЦИЯ (BALANCE) --- //
 // Тут собраны модпаки, что будут применяться на все и вся. Поэтому они собраны тут

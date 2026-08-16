@@ -1,12 +1,12 @@
 // MARK: Captain
 
 /datum/outfit/job/cel/nanotrasen/captain/vigilitas
-	name = "NT Vigilitas - Leutenant (Darect Captain)"
+	name = "NT Vigilitas - Lieutenant (Darect Captain)"
 	job_icon = "clip_cmm6"
 
 	jobtype = /datum/job/captain
 
-	id = /obj/item/card/id/cel/nanotrasen/vigilitas_leutenant
+	id = /obj/item/card/id/cel/nanotrasen/vigilitas_lieutenant
 
 /datum/outfit/job/cel/nanotrasen/captain/vigilitas/darect
 	belt = /obj/item/pda/heads/hos
@@ -14,7 +14,7 @@
 	ears = /obj/item/radio/headset/nanotrasen/alt/captain
 	uniform = /obj/item/clothing/under/nanotrasen/security/director
 	suit = /obj/item/clothing/suit/armor/nanotrasen/sec_director
-	alt_suit = /obj/item/clothing/suit/toggle/armor/hos_formal
+	alt_suit = /obj/item/clothing/suit/toggle/armor/parade/red
 	dcoat = /obj/item/clothing/suit/hooded/wintercoat/security
 	shoes = /obj/item/clothing/shoes/combat
 	neck = /obj/item/clothing/neck/scarf/black
@@ -115,7 +115,7 @@
 // MARK: Assistant
 
 /datum/outfit/job/cel/nanotrasen/security/vigilitas
-	name = "NT Vigilitas - Security"
+	name = "NT Vigilitas - Security Officer"
 	job_icon = "securityofficer"
 
 	jobtype = /datum/job/officer

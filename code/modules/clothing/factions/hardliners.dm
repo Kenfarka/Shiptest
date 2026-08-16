@@ -17,6 +17,7 @@
 	icon_state = "hl_jumpsuit"
 	item_state = "hl_jumpsuit"
 
+
 /obj/item/clothing/under/syndicate/hardliners/officer
 	name = "hardliners officer uniform"
 	desc = "A button-up uniform with cargo pants, certainly more tactical than most officer uniforms."
@@ -104,7 +105,7 @@
 	icon_state = "hl_sergeant"
 	item_state = "hl_sergeant"
 	blood_overlay_type = "coat"
-	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 10)  // [CELADON-EDIT] - CELADON_BALANCE
 
 /obj/item/clothing/suit/toggle/armor/vest/hardliners
 	name = "hardliners captain coat"
@@ -142,6 +143,7 @@
 	icon = 'icons/obj/clothing/faction/hardliners/head.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/faction/hardliners/head.dmi'
 	hardsuit_type = "hl"
+	supports_variations = DIGITIGRADE_VARIATION | KEPORI_VARIATION | VOX_VARIATION
 
 /obj/item/clothing/suit/space/hardsuit/syndi/hl
 	name = "white-red hardsuit"
@@ -154,7 +156,7 @@
 	mob_overlay_icon = 'icons/mob/clothing/faction/hardliners/suits.dmi'
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/hl
 	jetpack = null
-	supports_variations = DIGITIGRADE_VARIATION | KEPORI_VARIATION
+	supports_variations = DIGITIGRADE_VARIATION | KEPORI_VARIATION | VOX_VARIATION
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/hl
 	name = "elite white-red hardsuit helmet"
@@ -196,7 +198,7 @@
 	icon_state = "hl_surgery"
 	icon = 'icons/obj/clothing/faction/hardliners/head.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/faction/hardliners/head.dmi'
-
+	supports_variations = VOX_VARIATION
 
 /obj/item/clothing/head/hardhat/hardliners
 	name = "white-red hard hat"
@@ -255,7 +257,7 @@
 	item_state = "hl_webbing"
 	icon = 'icons/obj/clothing/faction/hardliners/belt.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/faction/hardliners/belt.dmi'
-	supports_variations = KEPORI_VARIATION
+	supports_variations = KEPORI_VARIATION | VOX_VARIATION
 
 /obj/item/storage/belt/security/webbing/hardliners/sidewinder/PopulateContents()
 	. = ..()

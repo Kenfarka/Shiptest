@@ -1402,9 +1402,9 @@
 /obj/item/clothing/suit/longcoat/roboblack{
 	name = "syndicate medic's black longcoat"
 	},
-/obj/item/clothing/under/syndicate/medic/skirt,
-/obj/item/clothing/under/syndicate/medic,
-/obj/item/clothing/head/helmet/medical,
+/obj/item/clothing/under/cybersun/medic/skirt,
+/obj/item/clothing/under/cybersun/medic,
+/obj/item/clothing/head/helmet/m10/cybersun/trauma,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical/webbing,
 /obj/item/clothing/gloves/color/latex/nitrile/evil,
@@ -5092,9 +5092,9 @@
 /obj/item/clothing/suit/longcoat/roboblack{
 	name = "syndicate medic's black longcoat"
 	},
-/obj/item/clothing/under/syndicate/medic/skirt,
-/obj/item/clothing/under/syndicate/medic,
-/obj/item/clothing/head/helmet/medical,
+/obj/item/clothing/under/cybersun/medic/skirt,
+/obj/item/clothing/under/cybersun/medic,
+/obj/item/clothing/head/helmet/m10/cybersun/trauma,
 /obj/item/antag_spawner/nuke_ops/borg_tele/medical/unlocked,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical/webbing,
@@ -8068,7 +8068,7 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/engineering/atmospherics)
 "TT" = (
-/obj/machinery/vending/wallmed{
+/obj/machinery/vending/wallmed/ship{
 	pixel_y = -30
 	},
 /obj/effect/turf_decal/corner/opaque/orange{

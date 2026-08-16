@@ -164,6 +164,7 @@
 	icon_state = "beret_mining"
 
 //Sec
+// [CELADON-EDIT] - CELADON_BALANCE - броня /obj/item/clothing/head/beret/sec переопределена в mod_celadon\balance\code\items.dm
 /obj/item/clothing/head/beret/sec
 	name = "security beret"
 	desc = "A robust beret with the security insignia emblazoned on it."
@@ -250,10 +251,7 @@
 	icon_state = "beret_cmo"
 	armor = list("bio" = 30, "acid" = 20)
 
-/obj/item/clothing/head/beret/cmo/cybersun
-	name = "medical director beret"
-	desc = "A burgundy-red beret with a silver cross. It smells very sterile."
-	icon_state = "meddirectorberet"
+
 
 //Command
 /obj/item/clothing/head/beret/captain

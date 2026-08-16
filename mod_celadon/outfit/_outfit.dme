@@ -10,6 +10,8 @@
 
 #include "code/_outpost/_outfit.dm"
 
+#include "code/commie_rev/outfit.dm"
+
 #include "code/elysium/_card_id.dm"
 #include "code/elysium/_outfit.dm"
 #include "code/elysium/assets/merch.dm"
@@ -36,7 +38,7 @@
 #include "code/nanotrasen/intelligence_outfit.dm"
 #include "code/nanotrasen/lp_outfit.dm"
 #include "code/nanotrasen/nakamura_outfit.dm"
-#include "code/nanotrasen/nslogistic_outfit.dm"
+#include "code/nanotrasen/nslogistics_outfit.dm"
 #include "code/nanotrasen/ntas_outfit.dm"
 #include "code/nanotrasen/vigilitas_outfit.dm"
 #include "code/nanotrasen/assets/decals.dm"
@@ -46,6 +48,7 @@
 #include "code/solfed/_outfit.dm"
 #include "code/solfed/assets/decal.dm"
 #include "code/solfed/assets/other_stuff.dm"
+#include "code/solfed/assets/clothing.dm"
 
 #include "code/syndicate/_card_id.dm"
 #include "code/syndicate/_outfit.dm"
@@ -54,7 +57,6 @@
 #include "code/syndicate/gec_outfit.dm"
 #include "code/syndicate/gorlex_outfit.dm"
 #include "code/syndicate/suns_outfit.dm"
-#include "code/syndicate/twinkle_outfit.dm"
 
 #include "code/pirate/_card_id.dm"
 #include "code/pirate/_outfit.dm"

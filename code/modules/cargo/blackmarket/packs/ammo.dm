@@ -39,7 +39,7 @@
 /datum/blackmarket_item/ammo/a762_box
 	name = "7.62x40mm CLIP Ammo Box"
 	desc = "A 60 round ammo box of 7.62x40mm CLIP."
-	item = /datum/supply_pack/ammo/a762_ammo_box
+	item = /obj/item/storage/box/ammo/a762_40
 
 	cost_min = 250
 	cost_max = 600
@@ -98,17 +98,6 @@
 	cost_min = 200
 	cost_max = 500
 	stock_min = 2
-	stock_max = 6
-	availability_prob = 0
-
-/datum/blackmarket_item/ammo/saber_mag
-	name = "Saber 9x18mm SMG Magazines"
-	desc = "Magazines for use in the Saber 9x18mm SMG. No, they don't work as swords."
-	item = /obj/item/ammo_box/magazine/m9mm_expedition
-
-	cost_min = 150
-	cost_max = 450
-	stock_min = 4
 	stock_max = 6
 	availability_prob = 0
 

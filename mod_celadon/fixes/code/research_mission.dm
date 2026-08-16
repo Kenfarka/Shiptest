@@ -44,6 +44,7 @@
 /datum/overmap/event/affect_ship(datum/overmap/ship/controlled/Ship)
 	spawn_meteor(meteor_types, Ship.shuttle_port.get_virtual_level(), 0, Ship.shuttle_port)
 
+/*
 /datum/mission/outpost/research/meteor
 	objective_type = /datum/overmap/event/meteor
 
@@ -52,6 +53,7 @@
 
 /datum/mission/outpost/research/dust
 	objective_type = /datum/overmap/event/dust
+*/
 
 /datum/overmap/event/carp	// вынесено в mod_celadon/fixes/code/research_mission.dm, оставлено дял того чтобы не удалять кучу зависимостей
 	name = "carp migration (moderate)"
@@ -125,3 +127,31 @@
 	if(current_overmap.override_object_colors)
 		token.color = current_overmap.hazard_secondary_color
 	current_overmap.post_edit_token_state(src)
+
+// [CELADON-ADD] - ANOMALY_BALANCE
+/obj/effect/spawner/random/anomaly/storm/short
+	loot = list(
+		/obj/effect/anomaly/flux/storm/short,
+		/obj/effect/anomaly/pyro/storm/short,
+		/obj/effect/anomaly/sparkler/short,
+		/obj/effect/anomaly/veins/short,
+		/obj/effect/anomaly/phantom/short,
+		/obj/effect/anomaly/melter/short,
+	)
+/obj/effect/anomaly/flux/storm/short
+	lifespan = 60 SECONDS
+
+/obj/effect/anomaly/pyro/storm/short
+	lifespan = 60 SECONDS
+
+/obj/effect/anomaly/sparkler/short
+	lifespan = 60 SECONDS
+
+/obj/effect/anomaly/veins/short
+	lifespan = 60 SECONDS
+
+/obj/effect/anomaly/phantom/short
+	lifespan = 60 SECONDS
+
+/obj/effect/anomaly/melter/short
+	lifespan = 60 SECONDS

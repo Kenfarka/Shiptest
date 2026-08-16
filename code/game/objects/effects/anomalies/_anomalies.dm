@@ -31,6 +31,8 @@
 	var/immortal = FALSE
 	///Do we stay in one place?
 	var/immobile = FALSE
+	//have we been scanned for a mission yet?
+	var/mission_scanned = FALSE
 
 /obj/effect/anomaly/Initialize(mapload, new_lifespan, drops_core = TRUE)
 	. = ..()
@@ -40,7 +42,7 @@
 	if (!impact_area)
 		return INITIALIZE_HINT_QDEL
 
-	research_value = rand(500,4000)
+	research_value = rand(3000,8000) // [CELADON-EDIT] - ANOMALY_BALANCE - OLD_CODE: research_value = rand(500,4000)
 	pulse_delay = rand(pulse_delay*0.5, pulse_delay*1.5)
 
 	src.drops_core = drops_core

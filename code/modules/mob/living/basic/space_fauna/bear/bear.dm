@@ -18,7 +18,7 @@
 
 	maxHealth = 60
 	health = 60
-	speed = 0
+	speed = 12
 
 	obj_damage = 60
 	melee_damage_lower = 15 // i know it's like half what it used to be, but bears cause bleeding like crazy now so it works out
@@ -116,7 +116,6 @@
 	friendly_verb_continuous = "growls at"
 	friendly_verb_simple = "growl at"
 	speak_emote = list("growls")
-	speed = 12
 	maxHealth = 100
 	health = 100
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 50, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
@@ -131,7 +130,7 @@
 	move_resist = MOVE_FORCE_VERY_STRONG
 	butcher_results = list(/obj/item/food/meat/slab/bear = 3, /obj/item/stack/sheet/bone = 2)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide = 1)
-	var/mob_trophy = /obj/item/mob_trophy/bear_paw
+	var/mob_trophy = /obj/item/crusher_trophy/bear_paw	// [/CELADON-EDIT] - RETURN_CONTENT_CRUSHER_TROPHY
 	var/trophy_drop_mod = 25
 	//footstep_type = FOOTSTEP_MOB_CLAW
 	/// Message for when the polar bear starts to attack faster
@@ -177,7 +176,7 @@
 	maxHealth = 300
 	health = 300
 	obj_damage = 60
-	mob_trophy = /obj/item/mob_trophy/war_paw
+	//mob_trophy = /obj/item/mob_trophy/war_paw
 	trophy_drop_mod = 75
 	butcher_results = list(/obj/item/food/meat/slab/bear = 3, /obj/item/stack/sheet/bone = 2, /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide = 3)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide = 3, /obj/item/bear_armor = 1)

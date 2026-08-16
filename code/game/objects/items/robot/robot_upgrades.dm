@@ -447,6 +447,12 @@
 		if(BP)
 			BP.deactivate(R, user)
 			to_chat(user, span_notice("You remove the defibrillator unit to make room for the compact upgrade."))
+		// [CELADON-ADD] - FIX - Исправление бага, который позволяет устанавливать бесконечное количество подобных модулей.
+		var/obj/item/shockpaddles/cyborg/LS = locate() in R.module
+		if(LS)
+			to_chat(user, span_warning("This unit is already equipped with a defibrillator module!"))
+			return FALSE
+		// [/CELADON-ADD]
 		var/obj/item/shockpaddles/cyborg/S = new(R.module)
 		R.module.basic_modules += S
 		R.module.add_module(S, FALSE, TRUE)
@@ -472,7 +478,14 @@
 
 /obj/item/borg/upgrade/processor/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
+
 	if(.)
+		// [CELADON-ADD] - FIX - Исправление бага, который позволяет устанавливать бесконечное количество подобных модулей.
+		var/obj/item/surgical_processor/LP = locate() in R.module
+		if(LP)
+			to_chat(user, span_warning("This unit is already equipped with a surgical processor module!"))
+			return FALSE
+		// [/CELADON-ADD]
 		var/obj/item/surgical_processor/SP = new(R.module)
 		R.module.basic_modules += SP
 		R.module.add_module(SP, FALSE, TRUE)
@@ -535,17 +548,15 @@
 			R.SetLockdown(0)
 		R.set_anchored(FALSE)
 		R.notransform = FALSE
-		R.resize = 2
 		R.hasExpanded = TRUE
-		R.update_transform()
+		R.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if (.)
 		if (R.hasExpanded)
 			R.hasExpanded = FALSE
-			R.resize = 0.5
-			R.update_transform()
+			R.update_transform(0.5)
 
 /obj/item/borg/upgrade/rped
 	name = "engineering cyborg RPED"
@@ -558,8 +569,10 @@
 /obj/item/borg/upgrade/rped/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if(.)
-
-		var/obj/item/storage/part_replacer/cyborg/RPED = locate() in R
+		// [CELADON-EDIT] - FIX - Исправление бага, который позволяет устанавливать бесконечное количество подобных модулей.
+		// var/obj/item/storage/part_replacer/cyborg/RPED = locate() in R
+		var/obj/item/borg/upgrade/rped/RPED = locate() in R
+		// [/CELADON-EDIT]
 		if(RPED)
 			to_chat(user, span_warning("This unit is already equipped with a RPED module!"))
 			return FALSE
@@ -571,7 +584,10 @@
 /obj/item/borg/upgrade/rped/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
 	if (.)
-		var/obj/item/storage/part_replacer/cyborg/RPED = locate() in R.module
+		// [CELADON-EDIT] - FIX - Исправление бага, который позволяет устанавливать бесконечное количество подобных модулей.
+		// var/obj/item/storage/part_replacer/cyborg/RPED = locate() in R.module
+		var/obj/item/borg/upgrade/rped/RPED = locate() in R.module
+		// [/CELADON-EDIT]
 		if (RPED)
 			R.module.remove_module(RPED, TRUE)
 

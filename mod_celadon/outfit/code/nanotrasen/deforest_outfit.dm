@@ -1,12 +1,38 @@
-// MARK: NT DeForest
+// MARK: Captain
+
+/datum/outfit/job/cel/nanotrasen/captain/deforest_captain
+
+	name = "NT DeForest - Captain"
+
+	belt = /obj/item/pda/heads/cmo
+
+	ears = /obj/item/radio/headset/nanotrasen/captain
+	head = /obj/item/clothing/head/beret/cmo
+	uniform = /obj/item/clothing/under/nanotrasen/medical/director
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/color/latex/nitrile
+	suit = /obj/item/clothing/suit/toggle/labcoat/nanotrasen/blue
+	dcoat = /obj/item/clothing/suit/hooded/wintercoat/medical
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel/med
+	courierbag = /obj/item/storage/backpack/messenger/med
+
+	chameleon_extras = /obj/item/stamp/cmo
+
+	id = /obj/item/card/id/cel/nanotrasen/deforest_cmo/captain
+
+// MARK: Command
 
 /datum/outfit/job/cel/nanotrasen/cmo/deforest_cmo
-	name = "NT DeForest - Cheif of Medical Officer"
+	name = "NT DeForest - Medical Director"
 	job_icon = "chiefmedicalofficer"
 
 	id = /obj/item/card/id/cel/nanotrasen/deforest_cmo
 
 	belt = /obj/item/pda/heads/cmo
+
+// MARK: Crew
 
 /datum/outfit/job/cel/nanotrasen/scientist/deforest_researcher
 	name = "NT DeForest - Scientist"
@@ -17,7 +43,7 @@
 	id = /obj/item/card/id/cel/nanotrasen/deforest_researcher
 
 /datum/outfit/job/cel/nanotrasen/scientist/deforest_researcher/genetic
-	name = "NT DeForest - Scientist Genetic"
+	name = "NT DeForest - Scientist Geneticist"
 
 	belt = /obj/item/pda/geneticist
 

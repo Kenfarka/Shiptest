@@ -123,6 +123,7 @@
 	can_be_undeployed = TRUE
 	spawned_on_undeploy = /obj/item/deployable_turret_folded
 
+// MARK: ELYSIUM SEPAR
 // Elysium separatists turrets - не знаю зачем вообще сепарам турели, но пусть будут
 
 /obj/machinery/porta_turret/ship/elysium
@@ -158,6 +159,7 @@
 	scan_range = 15
 	shot_delay = 20
 
+// MARK: SOLFED
 //Solar Federation turrets
 
 /obj/machinery/porta_turret/ship/solfed
@@ -192,6 +194,7 @@
 	shot_delay = 20
 	max_integrity = 300
 
+// MARK: SYNDICATE
 //Syndicate turrets - баллистические синди турели ибо оффы сделали их НГР
 
 /obj/machinery/porta_turret/ship/syndicate/ballistic
@@ -225,15 +228,44 @@
 /obj/machinery/porta_turret/ship/syndicate/weak
 	desc = "A low powered turret designed by the Gorlex Maurauders. Effectively weaponizes mining equipment." //no fucking icw
 
-//Nanotrasen turrets - даем хеви турелям хевилазеры дизейблера
+// MARK: NANOTRASEN
+//Nanotrasen ship turrets
+
+/obj/machinery/porta_turret/ship/nt
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen
+
+/obj/machinery/porta_turret/ship/nt/light
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/weak
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen/weak
 
 /obj/machinery/porta_turret/ship/nt/heavy
-	stun_projectile = /obj/projectile/beam/disabler/heavylaser/sharplite
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/heavylaser
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen/heavylaser
 	stun_projectile_sound = 'sound/weapons/wave.ogg'
 
 /obj/machinery/porta_turret/ship/nt/pulse
-	stun_projectile = /obj/projectile/beam/disabler/heavylaser/sharplite
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/heavylaser
 	stun_projectile_sound = 'sound/weapons/wave.ogg'
+
+//Nanotrasen derelict turrets
+// removes plasma projectiles
+
+/obj/machinery/porta_turret/ruin/nt
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen
+
+/obj/machinery/porta_turret/ruin/nt/light
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/weak
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen/weak
+
+/obj/machinery/porta_turret/ruin/nt/light/sniper
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/weak
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen/weak
+
+/obj/machinery/porta_turret/ruin/nt/heavy
+	stun_projectile = /obj/projectile/beam/disabler/nanotrasen/heavylaser
+	lethal_projectile = /obj/projectile/beam/laser/nanotrasen/heavylaser
 
 //Pirate turrets - даем фракцию пиратов вместо фронтиров
 
@@ -241,3 +273,16 @@
 	faction = list(FACTION_PIRATES, "Turret")
 	icon_state = "syndie_off"
 	base_icon_state = "syndie"
+
+// MARK: INTEQ
+/obj/machinery/porta_turret/ship/inteq/point_defence
+	name = "IRMG Point Defence Turret"
+	desc = "A light turret modified by IRMG engineers. Originally meant to defend ships against missile barrages, it now serves as a formidable anti-fauna powerhouse, equipped with powerful long-range sensors."
+	stun_projectile = /obj/projectile/bullet/pellet/rubbershot
+	stun_projectile_sound = 'sound/weapons/gun/smg/uzi.ogg'
+	lethal_projectile = /obj/projectile/bullet/pellet/bof
+	lethal_projectile_sound = 'sound/weapons/gun/smg/uzi.ogg'
+	scan_range = 12
+	burst_size = 4
+	burst_delay = 5
+	shot_delay = 0.5

@@ -120,10 +120,10 @@
 	data["outpostMissions"] = list()
 
 	if(current_ship)
-		for(var/datum/mission/outpost/M as anything in current_ship.missions)
+		for(var/datum/mission/M as anything in current_ship.missions)
 			data["shipMissions"] += list(M.get_tgui_info())
 		if(istype(outpost_docked))
-			for(var/datum/mission/outpost/M as anything in outpost_docked.missions)
+			for(var/datum/mission/M as anything in outpost_docked.missions)
 				data["outpostMissions"] += list(M.get_tgui_info())
 
 	return data
@@ -154,26 +154,12 @@
 				src.visible_message(span_notice("[src] dispenses a holochip."))
 			return TRUE
 
-		//[CELADON-ADD] - CELADON_FIXES - чиним реролл
-		if("payFine")
-			var/val = 3000
-			// no giving yourself money
-			if(!charge_account || !val || val <= 0)
-				return
-			if(charge_account.adjust_money(-val))
-				playsound(src, 'sound/machines/twobeep_high.ogg', 50, TRUE)
-				src.visible_message("<span class='notice'>[src] unblocks giving up.</span>")
-				var/obj/docking_port/mobile/D = SSshuttle.get_containing_shuttle(src)
-				var/datum/overmap/ship/controlled/ship = D.current_ship
-				if(ship)
-					ship.given_up_missions = 0
-					ship.giveup_timer = world.time-15 MINUTES
-					ship.giveup_timeout = FALSE
-		//[/CELADON-ADD]
 		// if("add")
 		if("purchase")
 			var/list/purchasing = params["cart"]
 			var/total_cost = text2num(params["total"])
+			if(!current_ship?.docked_to)	// [CELADON-ADD] - Мне лень убирать этот вызов, можно обойтись банальной проверкой
+				return						// [/CELADON-ADD]
 			var/datum/overmap/outpost/current_outpost = current_ship.docked_to
 			if(!istype(current_ship.docked_to) || purchasing.len == 0)
 				return
@@ -196,7 +182,7 @@
 			current_outpost.market.make_order(usr, unprocessed_packs, return_crate_spawner())
 
 		if("mission-act")
-			var/datum/mission/outpost/mission = locate(params["ref"])
+			var/datum/mission/mission = locate(params["ref"])
 			var/obj/docking_port/mobile/D = SSshuttle.get_containing_shuttle(src)
 			var/datum/overmap/ship/controlled/ship = D.current_ship
 			var/datum/overmap/outpost/outpost = ship.docked_to
@@ -205,7 +191,7 @@
 			if(!mission.accepted)
 				if(LAZYLEN(ship.missions) >= ship.max_missions)
 					return
-				mission.accept(ship, loc)
+				mission.accept(ship, loc, return_crate_spawner())
 				return TRUE
 			else if(mission.servant == ship)
 				if(mission.can_complete())
